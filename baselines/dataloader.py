@@ -29,12 +29,12 @@ class SpatialDataset(Dataset):
         for img in json.load(open(args.datapath)):
             if img['split'] in split.split('_'):
                 for annot in img['annotations']:
-                annot['url'] = img['url']
-                annot['height'] = img['height']
-                annot['width'] = img['width']
-                annot['subject']['bbox'] = self.fix_bbox(annot['subject']['bbox'], img['height'], img['width'])
-                annot['object']['bbox'] = self.fix_bbox(annot['object']['bbox'], img['height'], img['width'])
-                self.annotations.append(annot)
+                    annot['url'] = img['url']
+                    annot['height'] = img['height']
+                    annot['width'] = img['width']
+                    annot['subject']['bbox'] = self.fix_bbox(annot['subject']['bbox'], img['height'], img['width'])
+                    annot['object']['bbox'] = self.fix_bbox(annot['object']['bbox'], img['height'], img['width'])
+                    self.annotations.append(annot)
 
         print('%d relations in %s' % (len(self.annotations), split))
 
@@ -201,11 +201,11 @@ class SpatialDataset(Dataset):
         return bbox
 
 
-    def create_dataloader(split, load_image, args):
-        dataset = SpatialDataset(split, load_image, args)
-        return DataLoader(dataset, 
-                            args.batchsize, 
-                            num_workers=args.num_workers,
-                            shuffle=True if split.startswith('train') else False, 
-                            pin_memory=torch.cuda.is_available())
+def create_dataloader(split, load_image, args):
+    dataset = SpatialDataset(split, load_image, args)
+    return DataLoader(dataset, 
+                        args.batchsize, 
+                        num_workers=args.num_workers,
+                        shuffle=True if split.startswith('train') else False, 
+                        pin_memory=torch.cuda.is_available())
 
