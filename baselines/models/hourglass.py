@@ -30,17 +30,17 @@ class Hourglass(nn.Module):
         assert im_size == 1 or im_size % 2 == 0
         self.skip_resblock = ResidualBlock(feature_dim, feature_dim, im_size)
         if im_size > 1:
-        self.pre_resblock = ResidualBlock(feature_dim, feature_dim, im_size // 2)
-        self.layernorm1 = nn.LayerNorm((feature_dim, im_size // 2, im_size // 2))
-        self.sub_hourglass = Hourglass(im_size // 2, feature_dim)
-        self.layernorm2 = nn.LayerNorm((feature_dim, im_size // 2, im_size // 2))
-        self.post_resblock = ResidualBlock(feature_dim, feature_dim, im_size // 2)
+            self.pre_resblock = ResidualBlock(feature_dim, feature_dim, im_size // 2)
+            self.layernorm1 = nn.LayerNorm((feature_dim, im_size // 2, im_size // 2))
+            self.sub_hourglass = Hourglass(im_size // 2, feature_dim)
+            self.layernorm2 = nn.LayerNorm((feature_dim, im_size // 2, im_size // 2))
+            self.post_resblock = ResidualBlock(feature_dim, feature_dim, im_size // 2)
 
 
     def forward(self, x):
         up = self.skip_resblock(x)
         if x.size(-1) == 1:
-        return up
+            return up
         down = F.max_pool2d(x, 2)
         down = F.relu(self.layernorm1(self.pre_resblock(down)))
         down = F.relu(self.layernorm2(self.sub_hourglass(down)))

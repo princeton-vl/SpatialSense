@@ -47,10 +47,10 @@ class VtransE(nn.Module):
         subj_img_feature = []
         obj_img_feature = []
         for i in range(bbox_s.size(0)):
-        bbox_subj = self.fix_bbox(7 * bbox_s[i], 7)
-        bbox_obj = self.fix_bbox(7 * bbox_o[i], 7)
-        subj_img_feature.append(F.upsample(img_feature_map[i : (i + 1), :, bbox_subj[0] : bbox_subj[1], bbox_subj[2] : bbox_subj[3]], self.visual_feature_size, mode='bilinear'))
-        obj_img_feature.append(F.upsample(img_feature_map[i : (i + 1), :, bbox_obj[0] : bbox_obj[1], bbox_obj[2] : bbox_obj[3]], self.visual_feature_size, mode='bilinear'))
+            bbox_subj = self.fix_bbox(7 * bbox_s[i], 7)
+            bbox_obj = self.fix_bbox(7 * bbox_o[i], 7)
+            subj_img_feature.append(F.upsample(img_feature_map[i : (i + 1), :, bbox_subj[0] : bbox_subj[1], bbox_subj[2] : bbox_subj[3]], self.visual_feature_size, mode='bilinear'))
+            obj_img_feature.append(F.upsample(img_feature_map[i : (i + 1), :, bbox_obj[0] : bbox_obj[1], bbox_obj[2] : bbox_obj[3]], self.visual_feature_size, mode='bilinear'))
         subj_img_feature = torch.cat(subj_img_feature)
         obj_img_feature = torch.cat(obj_img_feature)
         subj_img_feature = subj_img_feature.view(subj_img_feature.size(0), -1)
