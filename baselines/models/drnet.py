@@ -8,7 +8,7 @@ from .hourglass import Hourglass
 
 class DRNet(nn.Module):
 
-    def __init__(self, phrase_encoder, feature_dim, pretrained, num_layers=3, backbone='resnet18'):
+    def __init__(self, phrase_encoder, feature_dim, num_layers=3, backbone='resnet18'):
         super(DRNet, self).__init__()
     
         self.phrase_encoder = phrase_encoder
