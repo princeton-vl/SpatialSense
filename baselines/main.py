@@ -132,7 +132,7 @@ def main():
 
     phrase_encoder = RecurrentPhraseEncoder(300, 300)
     if args.model == 'drnet':
-        model = DRNet(phrase_encoder, args.feature_dim, args.pretrained)
+        model = DRNet(phrase_encoder, args.feature_dim)
     elif args.model == 'vtranse':
         model = VtransE(phrase_encoder, args.visual_feature_size, args.predicate_embedding_dim)
     elif args.model == 'vipcnn':
