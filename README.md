@@ -137,3 +137,10 @@ Predictions and model checkpoints will be saved in `./runs/drnet`.
 2. Run `python main.py --train_split train_valid --exp_id vtranse --model vtranse --learning_rate 6e-4 --l2 3e-4 --feature_dim 128`
 
 Predictions and model checkpoints will be saved in `./runs/vtranse`.
+
+
+## Spatial Relations in 3D
+
+In a more recent [paper](https://arxiv.org/abs/2012.01634), we constructed [**Rel3D**](https://github.com/princeton-vl/Rel3D): the first large-scale, human-annotated dataset for grounding spatial relations in 3D. It enables quantifying the effectiveness of 3D information in predicting spatial relations. Moreover, we propose minimally contrastive data collection—a novel crowdsourcing method for reducing dataset bias. The examples in Rel3D come in **minimally contrastive pairs**: two examples in a pair are almost identical but have different labels.
+
+![Rel3D](./rel3d.gif)
