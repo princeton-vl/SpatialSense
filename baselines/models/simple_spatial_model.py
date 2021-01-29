@@ -4,7 +4,6 @@ import torch.nn.functional as F
 
 
 class SimpleSpatialModel(nn.Module):
-
     def __init__(self, input_dim, feature_dim, predicate_dim):
         super().__init__()
         self.linear1 = nn.Linear(input_dim, feature_dim)
@@ -14,15 +13,14 @@ class SimpleSpatialModel(nn.Module):
         self.linear3 = nn.Linear(predicate_dim, feature_dim)
         self.batchnorm3 = nn.BatchNorm1d(feature_dim)
         self.linear4 = nn.Linear(feature_dim, feature_dim // 2)
-        self.batchnorm4 =  nn.BatchNorm1d(feature_dim // 2)
+        self.batchnorm4 = nn.BatchNorm1d(feature_dim // 2)
         self.linear5 = nn.Linear(feature_dim // 2, 1)
-
 
     def forward(self, subj, obj, predi):
         subj_feature = self.linear1(subj)
         subj_feature = self.batchnorm1(subj_feature)
         subj_feature = F.relu(subj_feature)
-    
+
         obj_feature = self.linear2(obj)
         obj_feature = self.batchnorm2(obj_feature)
         obj_feature = F.relu(obj_feature)

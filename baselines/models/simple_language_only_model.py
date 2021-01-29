@@ -4,7 +4,6 @@ import torch.nn.functional as F
 
 
 class SimpleLanguageOnlyModel(nn.Module):
-
     def __init__(self, phrase_encoder, feature_dim, predicate_dim):
         super().__init__()
         self.phrase_encoder = phrase_encoder
@@ -15,9 +14,8 @@ class SimpleLanguageOnlyModel(nn.Module):
         self.linear3 = nn.Linear(predicate_dim, feature_dim)
         self.batchnorm3 = nn.BatchNorm1d(feature_dim)
         self.linear4 = nn.Linear(feature_dim, feature_dim // 2)
-        self.batchnorm4 =  nn.BatchNorm1d(feature_dim // 2)
+        self.batchnorm4 = nn.BatchNorm1d(feature_dim // 2)
         self.linear5 = nn.Linear(feature_dim // 2, 1)
-
 
     def forward(self, subj, obj, predi):
         subj = self.phrase_encoder(subj)
@@ -34,7 +32,7 @@ class SimpleLanguageOnlyModel(nn.Module):
         predi_feature = self.linear3(predi)
         predi_feature = self.batchnorm3(predi_feature)
         predi_feature = F.relu(predi_feature)
-      
+
         fused_feature = subj_feature + predi_feature + obj_feature
         fused_feature = self.linear4(fused_feature)
         fused_feature = self.batchnorm4(fused_feature)
