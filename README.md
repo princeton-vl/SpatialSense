@@ -1,5 +1,8 @@
 # SpatialSense
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+
 ![Samples](samples.jpg)
 
 Dataset and code for the paper:  
@@ -17,11 +20,16 @@ International Conference on Computer Vision (ICCV) 2019
 }
 ```
 
+## Requirements
+
+1. Download [the SpatialSense dataset](https://drive.google.com/drive/folders/125fgCq-1YYfKOAxRxVEdmnyZ7sKWlyqZ?usp=sharing) (including `images.tar.gz` and `annotations.json`) to the root of this repo. Unzip `images.tar.gz`.
+1. Download and install [Miniconda Python 3](https://docs.conda.io/en/latest/miniconda.html) (Anaconda should also work).
+1. Install Python dependencies using conda: `conda env create -f spatialsense.yaml && conda activate spatialsense`. If you have troubles with the aforementioned two steps, you may manually install the packages in [spatialsense.yaml](./spatialsense.yaml) in whatever way that works for you.
+1. Download the pre-trained Word2Vec model [GoogleNews-vectors-negative300.bin.gz.](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing) to [./baselines](https://github.com/princeton-vl/SpatialSense/tree/master/baselines).
+
 
 ## Dataset
 
-Download the SpatialSense dataset [here](https://drive.google.com/drive/folders/125fgCq-1YYfKOAxRxVEdmnyZ7sKWlyqZ?usp=sharing), including images and annotations of spatial relations. 
-The instructions below assume you have downloaded the dataset to the root of the repositiory and unzipped `images.tar.gz`.
 
 ### Data Format
 
@@ -82,30 +90,24 @@ Run `python visualize.py --help` to see the options.
 
 ## Baselines
 
-### Dependencies
-
-* [Anaconda Python 3](https://www.anaconda.com/distribution/)
-* [PyTorch](https://pytorch.org/)
-
 Assuming you are in the `./baselines` directory, below are instructions for reproducing the baselines in the paper. 
 
 ### Language-only
 
-1. Download the pre-trained Word2Vec model [GoogleNews-vectors-negative300.bin.gz.](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing) to the `./baselines` directory.
-2. Run `python main_L.py --train_split train_valid --exp_id language-only`
+Training: `python main_L.py --train_split train_valid --exp_id language-only`
 
 Predictions and model checkpoints will be saved in `./runs/language-only`.
 
 ### 2D-only
 
-1. Run `NO_WORD2VEC=1, python main_S.py --train_split train_valid  --exp_id 2d-only`
+Training: `NO_WORD2VEC=1, python main_S.py --train_split train_valid  --exp_id 2d-only`
 
 Predictions and model checkpoints will be saved in `./runs/2d-only`.
 
 
 ### Vip-CNN
 
-1. Run `python main.py --train_split train_valid --exp_id vipcnn --model vipcnn --learning_rate 4e-4 --l2 5e-7 --n_epochs 40 --batchsize 16 --patience 18`
+Training: `python main.py --train_split train_valid --exp_id vipcnn --model vipcnn --learning_rate 4e-4 --l2 5e-7 --n_epochs 40 --batchsize 16 --patience 18`
 
 Predictions and model checkpoints will be saved in `./runs/vipcnn`.
 
@@ -118,23 +120,21 @@ Predictions and model checkpoints will be saved in `./runs/vipcnn`.
 
 ### PPR-FCN
 
-1. Run `python main.py --train_split train_valid --exp_id pprfcn --model pprfcn --backbone resnet101 --learning_rate 3e-4 --l2 6e-7 --batchsize 7 --patience 14`
+Training: `python main.py --train_split train_valid --exp_id pprfcn --model pprfcn --backbone resnet101 --learning_rate 3e-4 --l2 6e-7 --batchsize 7 --patience 14`
 
 Predictions and model checkpoints will be saved in `./runs/pprfcn`.
 
 
 ### DRNet
 
-1. Download the pre-trained Word2Vec model [GoogleNews-vectors-negative300.bin.gz.](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing) to the `./baselines` directory.
-2. Run `python main.py --train_split train_valid --exp_id drnet --model drnet --learning_rate 1.5e-4 --l2 2.8e-4`
+Training: `python main.py --train_split train_valid --exp_id drnet --model drnet --learning_rate 1.5e-4 --l2 2.8e-4`
 
 Predictions and model checkpoints will be saved in `./runs/drnet`.
 
 
 ### VTransE
 
-1. Download the pre-trained Word2Vec model [GoogleNews-vectors-negative300.bin.gz.](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing) to the `./baselines` directory.
-2. Run `python main.py --train_split train_valid --exp_id vtranse --model vtranse --learning_rate 6e-4 --l2 3e-4 --feature_dim 128`
+Training: `python main.py --train_split train_valid --exp_id vtranse --model vtranse --learning_rate 6e-4 --l2 3e-4 --feature_dim 128`
 
 Predictions and model checkpoints will be saved in `./runs/vtranse`.
 
