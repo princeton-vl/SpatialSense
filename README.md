@@ -8,7 +8,7 @@
 Dataset and code for the paper:  
 
 [SpatialSense: An Adversarially Crowdsourced Benchmark for Spatial Relation Recognition](https://arxiv.org/abs/1908.02660)  
-Kaiyu Yang, Olga Russakovsky, and Jia Deng   
+[Kaiyu Yang](https://www.cs.princeton.edu/~kaiyuy/), [Olga Russakovsky](https://www.cs.princeton.edu/~olgarus/), and [Jia Deng](https://www.cs.princeton.edu/~jiadeng/)   
 International Conference on Computer Vision (ICCV) 2019   
 
 ```
