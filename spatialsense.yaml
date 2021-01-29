@@ -1,0 +1,19 @@
+name: spatialsense
+channels:
+  - defaults
+  - pytorch
+dependencies:
+  - python=3.7
+  - gensim
+  - torchvision
+  - torchaudio
+  - pytorch
+  - black
+  - progressbar2
+  - smart_open
+  - opencv
+  - scikit-learn
+  - ipython
+  - pip
+  - pip:
+    - autocorrect
