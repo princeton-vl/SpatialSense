@@ -2,12 +2,15 @@ from gensim.models import KeyedVectors
 import json
 import pickle
 import numpy as np
-from autocorrect import spell
+from autocorrect import Speller
 import cv2
 import os
 import random
 from collections import defaultdict
 import torch
+
+
+spell = Speller()
 
 
 if not "NO_WORD2VEC" in os.environ:
