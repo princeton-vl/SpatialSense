@@ -52,8 +52,8 @@ class SpatialDataset(Dataset):
         t_s = self._getT(annot["subject"]["bbox"], annot["object"]["bbox"])
         t_o = self._getT(annot["object"]["bbox"], annot["subject"]["bbox"])
 
-        xs0, xs1, ys0, ys1 = annot["subject"]["bbox"]
-        xo0, xo1, yo0, yo1 = annot["object"]["bbox"]
+        ys0, ys1, xs0, xs1 = annot["subject"]["bbox"]
+        yo0, yo1, xo0, xo1 = annot["object"]["bbox"]
 
         datum = {
             "url": annot["url"],
@@ -65,10 +65,10 @@ class SpatialDataset(Dataset):
                 ),
                 "bbox": np.asarray(
                     [
-                        xs0 / annot["height"],
-                        xs1 / annot["height"],
-                        ys0 / annot["width"],
-                        ys1 / annot["width"],
+                        ys0 / annot["height"],
+                        ys1 / annot["height"],
+                        xs0 / annot["width"],
+                        xs1 / annot["width"],
                     ],
                     dtype=np.float32,
                 ),
@@ -81,10 +81,10 @@ class SpatialDataset(Dataset):
                 ),
                 "bbox": np.asarray(
                     [
-                        xo0 / annot["height"],
-                        xo1 / annot["height"],
-                        yo0 / annot["width"],
-                        yo1 / annot["width"],
+                        yo0 / annot["height"],
+                        yo1 / annot["height"],
+                        xo0 / annot["width"],
+                        xo1 / annot["width"],
                     ],
                     dtype=np.float32,
                 ),
