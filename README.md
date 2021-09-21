@@ -16,7 +16,7 @@ International Conference on Computer Vision (ICCV) 2019
   title={SpatialSense: An Adversarially Crowdsourced Benchmark for Spatial Relation Recognition},
   author={Yang, Kaiyu and Russakovsky, Olga and Deng, Jia},
   booktitle={International Conference on Computer Vision (ICCV)},
-  year={2019},
+  year={2019}
 }
 ```
 
