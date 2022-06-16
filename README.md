@@ -11,7 +11,7 @@ Dataset and code for the paper:
 [Kaiyu Yang](https://www.cs.princeton.edu/~kaiyuy/), [Olga Russakovsky](https://www.cs.princeton.edu/~olgarus/), and [Jia Deng](https://www.cs.princeton.edu/~jiadeng/)   
 International Conference on Computer Vision (ICCV) 2019   
 
-```
+```bibtex
 @inproceedings{yang2019spatialsense,
   title={SpatialSense: An Adversarially Crowdsourced Benchmark for Spatial Relation Recognition},
   author={Yang, Kaiyu and Russakovsky, Olga and Deng, Jia},
