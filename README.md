@@ -8,7 +8,7 @@
 Dataset and code for the paper:  
 
 [SpatialSense: An Adversarially Crowdsourced Benchmark for Spatial Relation Recognition](https://arxiv.org/abs/1908.02660)  
-[Kaiyu Yang](https://www.cs.princeton.edu/~kaiyuy/), [Olga Russakovsky](https://www.cs.princeton.edu/~olgarus/), and [Jia Deng](https://www.cs.princeton.edu/~jiadeng/)   
+[Kaiyu Yang](https://yangky11.github.io/), [Olga Russakovsky](https://www.cs.princeton.edu/~olgarus/), and [Jia Deng](https://www.cs.princeton.edu/~jiadeng/)   
 International Conference on Computer Vision (ICCV) 2019   
 
 ```bibtex
@@ -22,10 +22,10 @@ International Conference on Computer Vision (ICCV) 2019
 
 ## Requirements
 
-1. Download [the SpatialSense dataset](https://drive.google.com/drive/folders/125fgCq-1YYfKOAxRxVEdmnyZ7sKWlyqZ?usp=sharing) (including `images.tar.gz` and `annotations.json`) to the root of this repo. Unzip `images.tar.gz`.
+1. Download the SpatialSense dataset from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8104370.svg)](https://doi.org/10.5281/zenodo.8104370) to the root of this repo. Unzip `images.tar.gz`.
 1. Download and install [Miniconda Python 3](https://docs.conda.io/en/latest/miniconda.html) (Anaconda should also work).
 1. Install Python dependencies using conda: `conda env create -f spatialsense.yaml && conda activate spatialsense`. If you have troubles with the aforementioned two steps, you may manually install the packages in [spatialsense.yaml](./spatialsense.yaml) in whatever way that works for you.
-1. Download the pre-trained Word2Vec model [GoogleNews-vectors-negative300.bin.gz.](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing) to [./baselines](https://github.com/princeton-vl/SpatialSense/tree/master/baselines).
+1. Download the pre-trained Word2Vec model [GoogleNews-vectors-negative300.bin.gz.](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?resourcekey=0-wjGZdNAUop6WykTtMip30g) to [./baselines](https://github.com/princeton-vl/SpatialSense/tree/master/baselines).
 
 
 ## Dataset
